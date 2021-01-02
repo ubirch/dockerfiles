@@ -46,7 +46,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 && rm -rf freetds-1.1.39
 
 # Install the Microsoft ODBC driver for SQL Server (Linux)
-RUN wget https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - \
+RUN wget https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
 && wget https://packages.microsoft.com/config/debian/10/prod.list -O /etc/apt/sources.list.d/mssql-release.list \
 && exit \
 && sudo apt-get update \
