@@ -48,7 +48,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install the Microsoft ODBC driver for SQL Server (Linux)
 RUN wget https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
 && wget -O /etc/apt/sources.list.d/mssql-release.list https://packages.microsoft.com/config/debian/10/prod.list \
-&& exit \
 && sudo apt-get update \
 && sudo ACCEPT_EULA=Y apt-get install msodbcsql17 \
 && sudo ACCEPT_EULA=Y apt-get install mssql-tools \
@@ -56,7 +55,7 @@ RUN wget https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
 && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc \
 && source ~/.bashrc \
 && sudo apt-get install unixodbc-dev \
-&& sudo apt-get install libgssapi-krb5-2 \
+&& sudo apt-get install libgssapi-krb5-2
 
 # install python packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
